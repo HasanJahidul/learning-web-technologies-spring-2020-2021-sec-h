@@ -1,16 +1,17 @@
 <?php
 
- $username= $_POST['username'];
- $password=$_POST['password'];
+ 
 
-
- $user_length= strlen($username);
- $password_length =strlen ($password);
 
 
 if(isset($_POST['submit'])){
-	$username = $_REQUEST['username'];
-   if($user_length<2)
+	$username= $_REQUEST['username'];
+	$password=$_REQUEST['password'];
+
+
+	$user_length= strlen($username);
+	$password_length =strlen ($password);
+ 	if ($user_length<2)
    {
    	echo "Invalid username";
    }
@@ -51,26 +52,19 @@ else{
 </head>
 <body>
     
-    <form method="post" action="login.php">
+    <form method="post" >
         
-        <fieldset style="width: 180px;">
-            
-        <legend><b>Login</b></legend>
-        <table>
-				<tr>
-					<td>Username</td>
-					<td><input type="text" name="username"></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="password"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" name="submit" value="Submit"></td>
-				</tr>
-			</table>
-        </fieldset>
+        <fieldset style="width:45%; margin:  0px auto;"  >
+                        
+                        <legend align= "left"><b>LOGIN</b></legend>
+                        
+                        User Name&nbsp;:&nbsp;<input type="text" name="username" placeholder=" Enter User Name"><br><br>
+                        Password&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="password" name="password" placeholder=" Enter Password">
+                        <hr>
+                        <input type="checkbox" name="remember_me" value="1"> <b>Remember Me</b><br><br>
+                        <input type="submit" name="submit" value="Submit"> <a href="forgotPassword.php">Forgot Password?</a>
+
+                    </fieldset>
         
         
     </form>
