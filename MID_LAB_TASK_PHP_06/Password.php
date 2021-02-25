@@ -1,12 +1,14 @@
 <?php
 
- $current_Password=$_POST['currentPassword'];
- $new_Password=$_POST['newPassword'];
- $renew_Password=$_POST['renewPassword'];
+ 
 
 
 
 if(isset($_POST['submit'])){
+	$current_Password=$_REQUEST['currentPassword'];
+	$new_Password=$_REQUEST['newPassword'];
+	$renew_Password=$_REQUEST['renewPassword'];
+	
    if($new_Password == $current_Password)
    {
    	echo "Old password and new Password can not be same";
@@ -29,6 +31,7 @@ if(isset($_POST['submit'])){
 }
 
 else{
+	echo "Error";
     
 }
 
@@ -43,7 +46,7 @@ else{
 	<title>CHANGE PASSWORD</title>
 </head>
 <body>
-	<form method="POST" action="">
+	<form method="post">
 		<fieldset style="width: 380px;">
 			<legend> <b>Change Password</b></legend>
 				<table>
