@@ -26,7 +26,7 @@
 
                        $user= [
                                 'name'         =>$name,
-                                'name'         =>$id,
+                                'id'         =>$id,
                                 'password'      =>$password,
                                 'type'        =>$type
                                 ];

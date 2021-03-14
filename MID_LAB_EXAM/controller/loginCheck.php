@@ -6,12 +6,12 @@
     if(isset($_POST['submit'])){
         
 
-        $username =$_POST['username'];
+        $id =$_POST['id'];
         $password = $_POST['password'];
         $user= "user";
         $admin="admin";
 
-         if($username == "" || $password == ""){
+         if($id == "" || $password == ""){
             echo "Please enter username and password";
             
         }else{
@@ -23,7 +23,7 @@
                 
 
 
-                if($search['username'] == $username && $search['password'] == $password){
+                if($search['id'] == $id && $search['password'] == $password){
                 setcookie('flag', true, time()+3600, '/');
 
 
@@ -32,6 +32,7 @@
                 $user_id=$search['id'];
                 $user_password=$search['password'];
                 $user_type=$search['type'];
+                
                 $_SESSION['name']=$user_name;
                 $_SESSION['password']=$user_password;
                 $_SESSION['id']=$user_id;
