@@ -15,7 +15,8 @@
         if($name == "" ||$id == "" | $password == "" || $cpassword == "" ||$type == "" ){
             echo "Please fill all information";
 
-        }else{
+        }
+        else{
 
             if($password == $cpassword ){
                 if (file_exists('../model/user.json'))
