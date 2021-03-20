@@ -6,33 +6,31 @@
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$repass = $_POST['repass'];
 		$email = $_POST['email'];
 
-		if($username == "" || $email == "" || $password == "" || $repass == ""){
+		if($username == "" || $email == "" || $password == ""){
 			echo "null submission...";
 		}else{
 
-			if($password == $repass){
+			
 
 				$user = [
+							'id'=>'',
 							'username' => $username,
 							'password' => $password,
 							'email' => $email,
 							'type' => 'user'
 						];
 
-				$status = insertUser($user);
+				$status = updateUser($user);
 
 				if($status){
-					header('location: ../view/login.html');
+					header('location: ../view/home.php');
 				}else{
 					echo "error";
 				}
 
-			}else{
-				echo "password & confirm password mismatch..";
-			}
+			
 		}
 
 	}

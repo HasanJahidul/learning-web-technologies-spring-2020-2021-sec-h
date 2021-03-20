@@ -16,31 +16,37 @@
 	<div id="main_content">
 		<table border="1">
 			<tr>
-				
+				<td>ID</td>
 				<td>Username</td>
 				<td>Password</td>
-				<td>EMAIL</td>
+				<td>Email</td>
 			</tr>
-			<?php 
-				$connect=mysqli_connect("localhost","root",'',"webtech");
-				$sql = "select * from users";
-			    $result = mysqli_query($connect, $sql);
-				while($row = mysqli_fetch_assoc($result)){
-        
-				        echo "<tr>
-				        <td>".$row['username']."</td>
-				        <td>".$row['password']."</td>
-				        <td>".$row['email']."</td>
-				       
-				        <td><a href=updateUsers.php?msg=".$row['username'].">Edit</a></td>
-				        <td><a href=../controller/deleteUsers.php?msg=".$row['username'].">Delete</a></td>
-				        </tr>";
-				        
-				    }
-			 ?>
 			
-			
+				<?php
+				$conn = mysqli_connect('localhost', 'root', '', 'webtech');
+				$sql = "select * from user";
+				$result = mysqli_query($conn, $sql);
+				while($row=mysqli_fetch_array($result))
+				{
+						echo "<tr>";
+					 	echo "<td>"; echo $row["id"]; echo "</td>";
+					    echo "<td>"; echo $row["username"]; echo "</td>";
+					    echo "<td>"; echo $row["password"]; echo "</td>";
+					    echo "<td>"; echo $row["email"]; echo "</td>";
+					    echo "<td>"; ?>
+
+					    <td><a href=edit.php?username="<?php echo $row['username']?>">Edit</a></td>
+				        <td><a href=../controller/deleteUsers.php?msg="<?php $row['username']?>">Delete</a></td>
+					     
+                		<?php echo "</td>";
+   						 echo "</tr>";
+    					
+				}
+				?>
+				
+				
+					 
+				  
 		</table>
 	</div>
 
-<?php include('footer.php'); ?>
